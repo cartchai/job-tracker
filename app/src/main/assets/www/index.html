@@ -589,7 +589,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
        never dim. The layer spans the full width (left:0;right:0) and
        inherits the host's text-align, so centred hero text stays centred. */
     html.neon-glow.neon-anim #appTitle, html.neon-glow.neon-anim .hero-timer { position: relative; text-shadow: none; }
-    html.neon-glow.neon-anim #appTitle::before, html.neon-glow.neon-anim .hero-timer::before { content: attr(data-glow); position: absolute; left: 0; right: 0; top: 0; color: transparent; pointer-events: none; text-shadow: 0 0 6px rgba(var(--accent-rgb), 0.85), 0 0 14px rgba(var(--accent-rgb), 0.65), 0 0 30px rgba(var(--accent-rgb), 0.42); opacity: .82; transition: text-shadow 0.5s ease-in-out; }
+    html.neon-glow.neon-anim #appTitle::before, html.neon-glow.neon-anim .hero-timer::before { content: attr(data-glow); position: absolute; left: 0; right: 0; top: 0; color: transparent; pointer-events: none; text-shadow: 0 0 6px rgba(var(--accent-rgb), 0.85), 0 0 14px rgba(var(--accent-rgb), 0.65), 0 0 30px rgba(var(--accent-rgb), 0.42); opacity: var(--glow-op, .82); transition: text-shadow 0.5s ease-in-out; }
     html.neon-glow.neon-anim #appTitle::before { animation: neonTitleOpacity 7s ease-in-out infinite; }
     html.neon-glow.neon-anim .hero-timer::before { animation: neonBreatheTitleOpacity 3s ease-in-out -0.2s infinite alternate; }
     /* Glow-layer hosts: position + stacking context for the layer (anim mode only). */
@@ -600,9 +600,9 @@ https://github.com/nodeca/pako/blob/main/LICENSE
        and the chip's floating. It only needs isolation, like .ios-tab-bar. */
     html.neon-glow.neon-anim .ios-tab-bar, html.neon-glow.neon-anim .app-header { isolation: isolate; }
     /* The glow layer itself: full shadow at max, opacity does the breathing. */
-    html.neon-glow.neon-anim .btn-primary::before, html.neon-glow.neon-anim .tut-btn.primary::before, html.neon-glow.neon-anim .wheel-use::before { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: 0 0 9px rgba(var(--accent-rgb), 0.78), 0 0 20px rgba(var(--accent-rgb), 0.58), 0 0 38px rgba(var(--accent-rgb), 0.34); opacity: .75; pointer-events: none; z-index: -1; transition: box-shadow 0.5s ease-in-out; animation: neonBreatheOpacity 3s ease-in-out 0s infinite alternate; }
-    html.neon-glow.neon-anim .scan-daychip::before { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: 0 0 9px rgba(var(--accent-rgb), 0.78), 0 0 20px rgba(var(--accent-rgb), 0.58), 0 0 38px rgba(var(--accent-rgb), 0.34); opacity: .75; pointer-events: none; z-index: -1; transition: box-shadow 0.5s ease-in-out; animation: neonBreatheOpacity 3s ease-in-out -0.5s infinite alternate; }
-    html.neon-glow.neon-anim .card::before, html.neon-glow.neon-anim .app-header::before { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: 0 0 24px rgba(var(--accent-rgb), 0.3); opacity: .55; pointer-events: none; z-index: -1; transition: box-shadow 0.5s ease-in-out; animation: neonBreatheOpacitySm 3s ease-in-out -1s infinite alternate; }
+    html.neon-glow.neon-anim .btn-primary::before, html.neon-glow.neon-anim .tut-btn.primary::before, html.neon-glow.neon-anim .wheel-use::before { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: 0 0 9px rgba(var(--accent-rgb), 0.78), 0 0 20px rgba(var(--accent-rgb), 0.58), 0 0 38px rgba(var(--accent-rgb), 0.34); opacity: var(--glow-op, .75); pointer-events: none; z-index: -1; transition: box-shadow 0.5s ease-in-out; animation: neonBreatheOpacity 3s ease-in-out 0s infinite alternate; }
+    html.neon-glow.neon-anim .scan-daychip::before { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: 0 0 9px rgba(var(--accent-rgb), 0.78), 0 0 20px rgba(var(--accent-rgb), 0.58), 0 0 38px rgba(var(--accent-rgb), 0.34); opacity: var(--glow-op, .75); pointer-events: none; z-index: -1; transition: box-shadow 0.5s ease-in-out; animation: neonBreatheOpacity 3s ease-in-out -0.5s infinite alternate; }
+    html.neon-glow.neon-anim .card::before, html.neon-glow.neon-anim .app-header::before { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: 0 0 24px rgba(var(--accent-rgb), 0.3); opacity: var(--glow-op, .55); pointer-events: none; z-index: -1; transition: box-shadow 0.5s ease-in-out; animation: neonBreatheOpacitySm 3s ease-in-out -1s infinite alternate; }
     html.neon-glow.neon-anim #tabBubble::before, html.neon-glow.neon-anim #tabBubbleBonus::before { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: 0 0 9px rgba(var(--accent-rgb), 0.78), 0 0 20px rgba(var(--accent-rgb), 0.58), 0 0 38px rgba(var(--accent-rgb), 0.34); opacity: .75; pointer-events: none; z-index: -1; transition: box-shadow 0.5s ease-in-out; animation: neonSwitchOpacity 0.8s ease-out 0.8s, neonBreatheOpacity 3s ease-in-out 1.6s infinite alternate; }
     html.neon-glow.neon-anim .ios-tab-bar::after { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: 0 0 24px rgba(var(--accent-rgb), 0.3); opacity: .55; pointer-events: none; z-index: -1; transition: box-shadow 0.5s ease-in-out; animation: neonSwitchOpacitySm 0.8s ease-out 1.2s, neonBreatheOpacitySm 3s ease-in-out 2s infinite alternate; }
     html.neon-glow.neon-anim .app-dlg-card::before { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: 0 0 32px rgba(var(--accent-rgb), 0.48), 0 0 76px rgba(var(--accent-rgb), 0.28); opacity: .75; pointer-events: none; z-index: -1; transition: box-shadow 0.5s ease-in-out; animation: neonSwitchOpacity 0.8s ease-out 1.4s, neonBreatheOpacity 3s ease-in-out 2.2s infinite alternate; }
@@ -627,18 +627,28 @@ https://github.com/nodeca/pako/blob/main/LICENSE
        layers are what broke raster tiles while scrolling), so while
        the page is moving the glow-layer animations are off: every
        animated ::before/::after layer collapses back to static paint
-       — the same profile as animation-off, which does not break —
-       and the glow sits at its breathe minimum (the base opacity the
-       animations start from, so nothing jumps). ~150ms after the
-       scroll settles the animations come back and breathing resumes.
-       Stationary look is identical — the glow only ever rests while
-       the content is moving too fast to see it breathe. The dock
-       bubbles, tab bar and dialog cards are NOT in this list: their
-       one-shot switch swell would replay every time the scroll
-       stopped, and they are only three small layers. */
-    html.scrolling.neon-glow.neon-anim .btn-primary::before, html.scrolling.neon-glow.neon-anim .tut-btn.primary::before, html.scrolling.neon-glow.neon-anim .wheel-use::before, html.scrolling.neon-glow.neon-anim .scan-daychip::before, html.scrolling.neon-glow.neon-anim .card::before, html.scrolling.neon-glow.neon-anim .app-header::before, html.scrolling.neon-glow.neon-anim #appTitle::before, html.scrolling.neon-glow.neon-anim .hero-timer::before { animation: none; }
-    html.scrolling.neon-glow.neon-anim .btn-secondary, html.scrolling.neon-glow.neon-anim .tut-sec, html.scrolling.neon-glow.neon-anim .action-btn, html.scrolling.neon-glow.neon-anim .fin-bar-val, html.scrolling.neon-glow.neon-anim .app-dlg-icon, html.scrolling.neon-glow.neon-anim .card h2, html.scrolling.neon-glow.neon-anim #calDetail h3, html.scrolling.neon-glow.neon-anim #checklistPage h2, html.scrolling.neon-glow.neon-anim .app-dlg-title, html.scrolling.neon-glow.neon-anim .scan-person-name, html.scrolling.neon-glow.neon-anim .picker-opt .material-symbols-rounded, html.scrolling.neon-glow.neon-anim .rem-up .material-symbols-rounded { animation: none; }
-    html.scrolling.neon-glow.neon-anim .table-wrapper, html.scrolling.neon-glow.neon-anim .loc-settings { animation: none; }
+       — the same profile as animation-off, which does not break.
+       8.5.1: the rest value is NOT the breathe minimum — the
+       breathing restarts at a fixed value per layer (measured with a
+       probe: card/header .896, chip .808, hero .826, halo 22px/0.27,
+       ink 5px/0.7 — deterministic constants of the keyframes +
+       negative delays), so each layer is parked at its own restart
+       value and the resume lands with no step. The pause does NOT
+       snap either: a CSS transition cannot bridge an animation
+       removal (proven — it snaps in one recalc), so neonScrollPause
+       holds the current breathing value first (inline --glow-op for
+       the ::before layers, inline shadow for halo/ink), forces a
+       recalc, and only then moves to the parked value, which the
+       0.2s transition ramps. The resume is held until the ramp has
+       finished (see neonScrollPause). Stationary
+       look is identical — the glow only ever rests while the content
+       is moving too fast to see it breathe. The dock bubbles, tab
+       bar and dialog cards are NOT in this list: their one-shot
+       switch swell would replay every time the scroll stopped, and
+       they are only three small layers. */
+    html.scrolling.neon-glow.neon-anim .btn-primary::before, html.scrolling.neon-glow.neon-anim .tut-btn.primary::before, html.scrolling.neon-glow.neon-anim .wheel-use::before, html.scrolling.neon-glow.neon-anim .scan-daychip::before, html.scrolling.neon-glow.neon-anim .card::before, html.scrolling.neon-glow.neon-anim .app-header::before, html.scrolling.neon-glow.neon-anim #appTitle::before, html.scrolling.neon-glow.neon-anim .hero-timer::before { animation: none; transition: box-shadow 0.5s ease-in-out, opacity 0.2s ease; }
+    html.scrolling.neon-glow.neon-anim .btn-secondary, html.scrolling.neon-glow.neon-anim .tut-sec, html.scrolling.neon-glow.neon-anim .action-btn, html.scrolling.neon-glow.neon-anim .fin-bar-val, html.scrolling.neon-glow.neon-anim .app-dlg-icon, html.scrolling.neon-glow.neon-anim .card h2, html.scrolling.neon-glow.neon-anim #calDetail h3, html.scrolling.neon-glow.neon-anim #checklistPage h2, html.scrolling.neon-glow.neon-anim .app-dlg-title, html.scrolling.neon-glow.neon-anim .scan-person-name, html.scrolling.neon-glow.neon-anim .picker-opt .material-symbols-rounded, html.scrolling.neon-glow.neon-anim .rem-up .material-symbols-rounded { animation: none; text-shadow: 0 0 5px rgba(var(--accent-rgb), 0.7); transition: text-shadow 0.2s ease; }
+    html.scrolling.neon-glow.neon-anim .table-wrapper, html.scrolling.neon-glow.neon-anim .loc-settings { animation: none; box-shadow: var(--shadow-sm), 0 0 22px rgba(var(--accent-rgb), 0.27); transition: box-shadow 0.2s ease, border-color 0.5s ease-in-out; }
     /* 8.3.9: glow as a transition when animation is off — accent changes
        crossfade the halo instead of snapping it. Appended to the existing
        transition lists so press/slide animations keep working. */
@@ -2565,6 +2575,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="card" id="changelogCard">
         <h2 id="changelogTitle" style="font-size:16px; margin:0 0 8px; user-select:none; -webkit-user-select:none;">Changelog</h2>
         <div class="changelog-list">
+        <div class="changelog-entry"><span class="ver">8.5.1</span> &mdash; The glow flickered while scrolling — it was jumping when the breathing stopped and started again. It now rests at the exact brightness the breathing restarts at, so it fades into the rest and back with no jump. Same colours, same glow, same breathing.</div>
         <div class="changelog-entry"><span class="ver">8.5</span> &mdash; The neon glow animation was the thing breaking the screen while scrolling — turning it off stopped it. The glow now rests while you scroll and breathes again when you stop, with the glow itself untouched: same colours, same breathing, same timing. Also new in Settings: app updates — check for a new version from GitHub and install it over the top, or turn on checking on startup (off by default) and it only tells you when one is ready.</div>
         <div class="changelog-entry"><span class="ver">8.3.19</span> &mdash; Scrolling back and forth in the Log Sheet and Scan tabs could leave buttons with no label, day chips with no name, and ghost text stuck at the top on some phones. Nothing about how it looks has changed &mdash; the top fade and the page background are now drawn as their own layers instead of being painted through the scrolling content, so the phone no longer has to re-draw them on every scroll.</div>
         <div class="changelog-entry"><span class="ver">8.3.18</span> &mdash; Took-off days now sit in their proper place in the Log Sheet. They were being merged as if the log ran oldest-first, so a take-off landed at the very top ahead of newer shifts instead of slotting in by date. Now a take-off appears in date order with the shifts around it, newest first like the rest of the log.</div>
@@ -3040,7 +3051,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="card" id="updatesCard">
         <h2>App updates</h2>
         <p class="muted">Check for a new version from GitHub. An update installs over the top — your shifts, settings and scans stay put.</p>
-        <p class="muted" style="margin:8px 0 0;">Current version: <b id="updateCurrentVer">8.5</b></p>
+        <p class="muted" style="margin:8px 0 0;">Current version: <b id="updateCurrentVer">8.5.1</b></p>
         <p class="muted" id="updateStatus" style="margin:8px 0 0;">Not checked yet.</p>
         <div style="display:flex; flex-direction:column; gap:12px; margin-top:12px;">
           <button class="btn btn-secondary" id="updateCheckBtn" onclick="checkForUpdateManual()">
@@ -7001,7 +7012,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     // user turned it on, so the app stays offline-first. The native side
     // does the network + download + install; JS only drives the UI.
     // Native callbacks: __onUpdateChecked(json), __onUpdateInstall(result).
-    const APP_VERSION = '8.5';
+    const APP_VERSION = '8.5.1';
     let __updateAvailable = null; // { version, url } when a newer release exists
     let __updateSilentCheck = false;
     let __updateToastT = 0;
@@ -7700,18 +7711,78 @@ svg.leaflet-image-layer.leaflet-interactive path {
     // layers stop animating (see the html.scrolling rules in the CSS) so
     // the phone GPU is not re-compositing dozens of animated layers
     // mid-fling, which is what broke tiles on scroll. The class goes on
-    // <html> and comes off ~150ms after the last scroll event; the
-    // breathing resumes from its base opacity, so nothing jumps. The
-    // handler only ever adds the class (a no-op when already there) and
-    // re-arms one timer — no work per scroll frame.
+    // <html> and comes off after the scroll settles.
+    // 8.5.1: the pause and the resume are both stepless. A CSS transition
+    // cannot bridge an animation removal (proven in a probe: the value
+    // snaps in one recalc even with a transition declared), so the pause
+    // holds the current breathing value first — inline --glow-op on each
+    // ::before host (its opacity reads the var), inline shadow on the
+    // halo/ink elements — then forces a style recalc, and only then moves
+    // to the parked value, which the 0.2s transition ramps. The parked
+    // value is the exact value the breathing animation restarts at
+    // (measured, deterministic constants of the keyframes + negative
+    // delays: card/header .896, chip .808, hero .826, halo 22px/0.27,
+    // ink 5px/0.7), so the resume lands with no step either. A quick
+    // flick must not resume mid-ramp — the class stays on until at
+    // least 250ms after the scroll started, as well as 150ms after the
+    // last scroll event, whichever is later. Reduced-motion users never
+    // get here: their glow is already steady, there is nothing to park.
+    // The handler only ever parks once per fling (a no-op while the class
+    // is already on) and re-arms one timer — no work per scroll frame.
     (function () {
-      let scrollSettleT = 0;
+      let scrollSettleT = 0, scrollStart = 0;
+      // ::before opacity layers: parked value per layer type.
+      const OP_LAYERS = [
+        { sel: '.btn-primary, .tut-btn.primary, .wheel-use', park: '.75' },
+        { sel: '.scan-daychip', park: '.808' },
+        { sel: '.card, .app-header', park: '.896' },
+        { sel: '#appTitle', park: '.82' },
+        { sel: '.hero-timer', park: '.826' },
+      ];
+      const HALO_SEL = '.table-wrapper, .loc-settings';
+      const INK_SEL = '.btn-secondary, .tut-sec, .action-btn, .fin-bar-val, .app-dlg-icon, .card h2, #calDetail h3, #checklistPage h2, .app-dlg-title, .scan-person-name, .picker-opt .material-symbols-rounded, .rem-up .material-symbols-rounded';
+      const visible = (sel) => [...document.querySelectorAll(sel)].filter(function (el) { return el.offsetParent !== null; });
+      function parkGlow() {
+        // Capture the current breathing values first (reads only).
+        const op = [];
+        for (const g of OP_LAYERS) {
+          for (const el of visible(g.sel)) op.push([el, getComputedStyle(el, '::before').opacity, g.park]);
+        }
+        const halo = visible(HALO_SEL).map(function (el) { return [el, getComputedStyle(el).boxShadow]; });
+        const ink = visible(INK_SEL).map(function (el) { return [el, getComputedStyle(el).textShadow]; });
+        // Hold the current values as the underlying values, then stop the
+        // animations. Nothing can snap: the computed value is unchanged.
+        for (const row of op) row[0].style.setProperty('--glow-op', row[1]);
+        for (const row of halo) row[0].style.boxShadow = row[1];
+        for (const row of ink) row[0].style.textShadow = row[1];
+        document.documentElement.classList.add('scrolling');
+        // Commit the animation-off state before moving to the parked
+        // values — without this recalc the removal and the new value land
+        // in one style pass and the transition is suppressed.
+        void document.body.offsetHeight;
+        // Now ramp to the parked values (the 0.2s transitions do it).
+        for (const row of op) row[0].style.setProperty('--glow-op', row[2]);
+        for (const row of halo) row[0].style.boxShadow = '';
+        for (const row of ink) row[0].style.textShadow = '';
+      }
+      function unparkGlow() {
+        document.documentElement.classList.remove('scrolling');
+        // The animations are driving the values again; drop the stale vars.
+        for (const g of OP_LAYERS) {
+          for (const el of document.querySelectorAll(g.sel)) el.style.removeProperty('--glow-op');
+        }
+      }
       function neonScrollPause() {
         const root = document.documentElement;
         if (!root.classList.contains('neon-anim')) return;
-        root.classList.add('scrolling');
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (!root.classList.contains('scrolling')) {
+          scrollStart = performance.now();
+          try { parkGlow(); } catch (e) { root.classList.add('scrolling'); }
+        }
         clearTimeout(scrollSettleT);
-        scrollSettleT = setTimeout(function () { root.classList.remove('scrolling'); }, 150);
+        const wait = Math.max(150, 250 - (performance.now() - scrollStart));
+        scrollSettleT = setTimeout(unparkGlow, wait);
       }
       document.querySelector('.main-content').addEventListener('scroll', neonScrollPause, { passive: true });
       const cp = document.getElementById('checklistPage');

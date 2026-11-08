@@ -8,8 +8,8 @@ android {
         applicationId 'com.matttracker.workhours'
         minSdk 29
         targetSdk 34
-        versionCode 8500
-        versionName '8.5'
+        versionCode 8501
+        versionName '8.5.1'
     }
 
     buildTypes {
