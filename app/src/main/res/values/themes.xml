@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.WorkHours" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/ic_bg</item>
+        <!-- 8.3.14: system bars are transparent — the WebView draws under
+             them edge-to-edge and the page's own background shows through,
+             so they always match the theme. -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+</resources>

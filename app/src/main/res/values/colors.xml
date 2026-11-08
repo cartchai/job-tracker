@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_bg">#191c2b</color>
+    <color name="ic_launcher_bg">#004b56</color>
+    <color name="ic_bg_purple">#3b1154</color>
+    <color name="ic_bg_pink">#57102a</color>
+    <color name="ic_bg_red">#571511</color>
+    <color name="ic_bg_orange">#57350a</color>
+    <color name="ic_bg_gold">#54470a</color>
+    <color name="ic_bg_green">#0e4423</color>
+    <color name="ic_bg_teal">#0a444e</color>
+</resources>

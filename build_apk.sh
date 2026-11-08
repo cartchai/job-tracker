@@ -1,0 +1,47 @@
+#!/bin/bash
+# Build JobTracker.apk manually (Gradle daemon is broken in this sandbox).
+set -e
+export JAVA_HOME=$(ls -d ~/jdk/jdk-17* | head -1)
+export ANDROID_HOME=$HOME/android-sdk
+export PATH=$JAVA_HOME/bin:$ANDROID_HOME/build-tools/34.0.0:$PATH
+PROJ=~/workspace/work-hours-tracker-android
+B=/tmp/apkbuild
+OUT=${1:-$PROJ/JobTracker.apk}
+
+rm -rf $B
+mkdir -p $B/classes $B/dex
+
+echo "== aapt2 compile/link"
+aapt2 compile --no-crunch --dir $PROJ/app/src/main/res -o $B/compiled.zip
+aapt2 link -o $B/unsigned.apk \
+  -I $ANDROID_HOME/platforms/android-34/android.jar \
+  --java $B/gen \
+  --manifest $PROJ/app/src/main/AndroidManifest.xml \
+  -A $PROJ/app/src/main/assets \
+  --min-sdk-version 29 --target-sdk-version 34 \
+  $B/compiled.zip
+
+echo "== javac"
+javac -encoding UTF-8 -source 8 -target 8 \
+  -cp $ANDROID_HOME/platforms/android-34/android.jar \
+  -d $B/classes $(find $B/gen -name '*.java') $PROJ/app/src/main/java/com/matttracker/workhours/*.java
+# Guard: a silently-missing class once shipped a notification-less app. Never again.
+test -f $B/classes/com/matttracker/workhours/TimerNotifier.class || { echo "BUILD FAILED: TimerNotifier.class missing"; exit 1; }
+test -f $B/classes/com/matttracker/workhours/ReminderNotifier.class || { echo "BUILD FAILED: ReminderNotifier.class missing"; exit 1; }
+test -f $B/classes/com/matttracker/workhours/ReminderReceiver.class || { echo "BUILD FAILED: ReminderReceiver.class missing"; exit 1; }
+
+echo "== d8"
+d8 --lib $ANDROID_HOME/platforms/android-34/android.jar --min-api 29 \
+  --output $B/dex $B/classes/com/matttracker/workhours/*.class
+
+echo "== package/align/sign"
+cp $B/unsigned.apk $B/app.apk
+(cd $B/dex && zip -q -j $B/app.apk classes.dex)
+zipalign -f 4 $B/app.apk $B/aligned.apk
+apksigner sign --ks ~/.android/debug.keystore --ks-pass pass:android --key-pass pass:android \
+  --out $B/JobTracker.apk $B/aligned.apk
+apksigner verify --print-certs $B/JobTracker.apk | head -2
+cp $B/JobTracker.apk "$OUT"
+cp $B/JobTracker.apk ~/workspace/your_files/work-hours-tracker/JobTracker.apk
+echo "BUILT: $OUT"
+ls -la "$OUT"
